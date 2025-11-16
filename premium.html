@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💎 Premium Access</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+</head>
+<body>
+
+<header>
+  <h1>💎 Premium</h1>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="favorites.html">⭐ Favorites</a>
+  <a href="premium.html" class="active">💎 Premium</a>
+</nav>
+
+<main class="premium-box">
+  <h2>Upgrade to Premium</h2>
+  <p>Unlock charts, alerts, unlimited favorites, and more!</p>
+
+  <button class="premium-btn" onclick="unlockPremium()">Unlock Premium – $1.99</button>
+</main>
+
+<script src="app.js"></script>
+<script>
+  const section = document.getElementById("premiumSection");
+
+  if (localStorage.getItem("premium") === "true") {
+    section.innerHTML = `
+      <h2>🎉 You already have Premium!</h2>
+      <p>Enjoy unlimited favorites, charts, alerts, and more.</p>
+    `;
+  } else {
+    section.innerHTML = `
+      <h2>Upgrade to Premium</h2>
+      <p>Unlock charts, unlimited favorites, price alerts and more.</p>
+      <button class="premium-btn" onclick="unlockPremium()">Unlock Premium – $1.99</button>
+    `;
+  }
+</script>
+</body>
+</html>

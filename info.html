@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Info</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+</head>
+<body>
+
+<header>
+  <h1 id="coinName">Loading...</h1>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="favorites.html">⭐ Favorites</a>
+  <a href="premium.html">💎 Premium</a>
+</nav>
+<main id="infoBox" class="info-container">
+  <p class="loading">Loading information...</p>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script>
+
+<script src="app.js"></script>
+</body>
+</html>

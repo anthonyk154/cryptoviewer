@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Viewer</title>
+ <meta name="description" content="View crypto coins easily">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+</head>
+<body>
+
+<header>
+  <h1>💰 Crypto Viewer</h1>
+<div class="mywebname">
+    <a target="_blank" rel="noopener noreferrer" style="text-align: center; color: #fff; cursor: pointer;" href="https://anthonyswebsites.site/">
+        <p style="text-align: center; color: #fff; text-decoration: underline #e28540; cursor: pointer;">Anthonys Websites</p>
+    </a>
+</div>
+  <div class="top-controls">
+    <input id="search" type="text" placeholder="Search coins…">
+    <select id="sort">
+      <option value="market_cap_desc">Top Market Cap</option>
+      <option value="price_desc">Highest Price</option>
+      <option value="price_asc">Lowest Price</option>
+      <option value="gainers">Top Gainers</option>
+      <option value="losers">Top Losers</option>
+    </select>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html" class="active">🏠 Home</a>
+  <a href="favorites.html">⭐ Favorites</a>
+  <a href="premium.html" id="premiumNav">💎 Premium</a>
+</nav>
+<main id="cryptoList"></main>
+
+<script src="app.js"></script>
+</body>
+</html>

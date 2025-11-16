@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: .3s;
+  padding-bottom: 50px;
+}
+
+:root { 
+  --bg: #0d1117;
+  --text: #ffffff;
+  --card: #161b22;
+  --nav: #1a1f25;
+}
+
+
+.dark {
+  --bg: #0d1117;
+  --text: #fff;
+  --card: #161b22;
+  --nav: #1a1f25;
+}
+
+/* HEADER */
+header {
+  padding: 20px;
+  text-align: center;
+  background: var(--nav);
+}
+
+.top-controls {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.top-controls input {
+  width: 220px;
+}
+
+.top-controls select {
+  width: 160px;
+}
+
+.top-controls button {
+  width: 50px;
+}
+
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: var(--nav);
+  padding: 12px;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* FORM ELEMENTS */
+input, select, button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+input:focus, select:focus {
+  border-color: gold;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* CRYPTO CARDS */
+.coin {
+  background: var(--card);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.coin:hover {
+  transform: scale(1.03);
+}
+
+.coin img {
+  width: 40px;
+}
+
+/* STAR BUTTON */
+.favorite-btn {
+  margin-left: auto;
+  font-size: 28px;
+  cursor: pointer;
+  color: gray;
+  transition: .2s;
+}
+
+.favorite-btn.active {
+  color: gold;
+}
+
+/* PREMIUM BOX */
+.premium-box {
+  text-align: center;
+  background: var(--card);
+  width: 90%;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 12px;
+}
+
+.premium-btn {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 12px;
+  background: gold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  opacity: .6;
+}
+.info-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  background: var(--card);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.info-header img {
+  width: 80px;
+}
+
+.info-section {
+  margin-top: 20px;
+}
+
+.info-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.buy-links a {
+  display: block;
+  background: #2d8cff;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.buy-links a:hover {
+  background: #1c6ad8;
+}
+.info-hint {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.6;
+  text-align: center;
+}
