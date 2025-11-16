@@ -84,7 +84,7 @@ async function loadCoins() {
   const data = await res.json();
   coinsData = data;
   displayCoins(data);
-}
+}   
 
 function displayCoins(list) {
   cryptoList.innerHTML = "";
@@ -301,4 +301,85 @@ if (premiumNav && isPremium) {
   premiumNav.innerHTML = "💎 Premium (Active)";
   premiumNav.style.color = "gold";
   premiumNav.style.fontWeight = "bold";
+}
+// =======================================================
+// CATEGORIES PAGE
+// =======================================================
+
+const categoriesBox = document.getElementById("categoriesBox");
+
+if (categoriesBox) loadCategoriesPage();
+
+async function loadCategoriesPage() {
+  const res = await fetch(API);
+  const data = await res.json();
+
+  categoriesBox.innerHTML = `
+    <div class="category-title">🤖 AI Coins</div>
+    <div id="aiCoins" class="category-list"></div>
+
+    <div class="category-title">🐶 Meme Coins</div>
+    <div id="memeCoins" class="category-list"></div>
+
+    <div class="category-title">🏦 DeFi Coins</div>
+    <div id="defiCoins" class="category-list"></div>
+
+    <div class="category-title">⛓ Layer 1 Coins</div>
+    <div id="layer1Coins" class="category-list"></div>
+
+    <div class="category-title">⛓ Bitcoin Ecosystem</div>
+    <div id="btcEco" class="category-list"></div>
+
+    <div class="category-title">💵 Stablecoins</div>
+    <div id="stableCoins" class="category-list"></div>
+  `;
+
+  buildCategory("aiCoins", data, ["fetch", "ocean", "rndr", "agix", "ali"]);
+  buildCategory("memeCoins", data, ["doge", "shib", "bonk", "pepe", "floki"]);
+  buildCategory("defiCoins", data, ["uni", "aave", "cake", "crv", "snx"]);
+  buildCategory("layer1Coins", data, ["btc", "eth", "ada", "sol", "dot", "avax"]);
+  buildCategory("btcEco", data, ["stx", "ordinals", "rune"]);
+  buildCategory("stableCoins", data, ["usdt", "usdc", "dai", "busd"]);
+}
+
+function buildCategory(elementId, allCoins, ids) {
+  const box = document.getElementById(elementId);
+  box.innerHTML = "";
+
+  const filtered = allCoins.filter(c =>
+    ids.includes(c.symbol.toLowerCase())
+  );
+
+  filtered.forEach(coin => {
+    const el = document.createElement("div");
+    el.className = "coin";
+
+    el.innerHTML = `
+      <img src="${coin.image}">
+      <div class="coin-info">
+        <div><strong>${coin.name}</strong> (${coin.symbol.toUpperCase()})</div>
+        <div class="price ${coin.price_change_percentage_24h >= 0 ? "green" : "red"}">
+          $${coin.current_price.toLocaleString()}
+        </div>
+        <div class="info-hint">Tap to view full info →</div>
+      </div>
+
+      <div class="favorite-btn ${favorites.includes(coin.id) ? "active" : ""}" data-id="${coin.id}">
+        ★
+      </div>
+    `;
+
+    // Open info page
+    el.querySelector(".coin-info").onclick = () =>
+      (window.location.href = `info.html?id=${coin.id}`);
+
+    // Add/remove favorites
+    el.querySelector(".favorite-btn").onclick = (event) => {
+      event.stopPropagation();
+      toggleFavorite(coin.id);
+      event.target.classList.toggle("active");
+    };
+
+    box.appendChild(el);
+  });
 }
